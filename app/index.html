@@ -5,22 +5,26 @@
     <title>Conenct | Osscube.com</title>
 
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet" />
-    <link href="app-content/app.css" rel="stylesheet" />
+    <link href="app-content/css/app.css" rel="stylesheet" />
 </head>
 <body class="container">
     <!-- header -->
-    <header>
-        <ul class="nav nav-tabs">
-            <li ng-class="{active: activeTab === 'home'}"><a ui-sref="home">Home</a></li>
-            <li ng-class="{active: activeTab === 'account'}"><a ui-sref="account">Account</a></li>
-            <li ng-class="{active: activeTab === 'groups'}"><a ui-sref="groups">Groups</a></li>
-            <li ng-class="{active: activeTab === 'our_work'}"><a ui-sref="our_work">Our Work</a></li>
-            <li><a href="/login" target="_self">Logout</a></li>
-        </ul>
+    <div class="col-sm-12 header_class">
+        <header>
+	        <ul class="nav nav-tabs right_header">
+	            <li ng-class="{active: activeTab === 'home'}"><a ui-sref="home">Home</a></li>
+	            <li ng-class="{active: activeTab === 'account'}"><a ui-sref="account">Account</a></li>
+	            <li ng-class="{active: activeTab === 'groups'}"><a ui-sref="groups">Groups</a></li>
+	            <li ng-class="{active: activeTab === 'our_work'}"><a ui-sref="our_work">Our Work</a></li>
+	            <li><a href="/login" target="_self">Logout</a></li>
+	        </ul>
         <div class="flash-message" ng-if="flash">
             <div class="{{'alert alert-' + flash.type}}" ng-bind="flash.message"></div>
         </div>
-    </header>
+   	 </header>
+	</div>
+	<div class="col-sm-12 below_header"></div>
+
 
     <!-- main -->
     <main ui-view></main>

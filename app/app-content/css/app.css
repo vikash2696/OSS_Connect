@@ -1,7 +1,21 @@
 ﻿body {
-    padding: 20px 0;
+    padding: 10px 0;
 }
 
 .flash-message {
     margin-top: 20px;
+}
+.header_class {
+	height:41px;
+	background-color:#353535;
+}
+.right_header {
+	float:right;
+}
+.below_header {
+	height:30px;
+	background-color:#0072AB;
+}
+.top_down{
+	margin-top:20px;
 }
