@@ -1,0 +1,55 @@
+﻿body {
+    padding: 10px 0;
+}
+
+.flash-message {
+    margin-top: 20px;
+}
+.header_class {
+	height:41px;
+	background-color:#353535;
+}
+.right_header {
+	float:right;
+}
+
+.below_header {
+	height:30px;
+	background-color:#0072AB;
+}
+.top_down {
+margin-top: 10px;
+   width: 40%;
+   float: left;
+   margin-left: 75px; 
+  }
+  #page_title {
+  font-weight: 300;
+   font-size: 3.85em;
+   line-height: 1.2em;
+  }
+  .post_area {
+  	float:left;
+  	margin-left: 75px; 
+ }
+ #home {
+	background-color: white;
+    padding:15px;
+    border-radius: 3px;
+    box-shadow: #858585 1px 1px 4px;
+    margin: 10px 0 10px;
+ }
+ .post_option {
+	margin-top:10px;
+ }
+ .form-select {
+	height:30px;
+ 	width:25%;
+ }
+ #post_submit {
+	height:30px;
+ 	float:right;
+    width: 78px;
+ 	background-color:#AD8A00;
+ 	border-radius:5px;
+ }

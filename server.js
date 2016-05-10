@@ -11,7 +11,7 @@ app.set('view engine', 'ejs');
 app.set('views', __dirname + '/views');
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
-app.use(favicon(__dirname + '/app/app-content/images/favicon.ico'));
+app.use(favicon(__dirname + '/app/public/images/favicon.ico'));
 app.use(session({ secret: config.secret, resave: false, saveUninitialized: true }));
 
 // use JWT auth to secure the api
