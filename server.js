@@ -6,6 +6,7 @@ var bodyParser = require('body-parser');
 var expressJwt = require('express-jwt');
 var config = require('config.json');
 var favicon = require('serve-favicon');
+//var index = require('./controllers/indexController');
 
 app.set('view engine', 'ejs');
 app.set('views', __dirname + '/views');
@@ -27,8 +28,7 @@ app.use('/api/users', require('./controllers/api/users.controller'));
 app.get('/', function (req, res) {
     return res.redirect('/app');
 });
-
 // start server
-var server = app.listen(3000, function () {
+var server = app.listen(3003, function () {
     console.log('Server listening at http://' + server.address().address + ':' + server.address().port);
 });

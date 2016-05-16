@@ -46,7 +46,7 @@ margin-top: 10px;
 	height:30px;
  	width:25%;
  }
- #post_submit {
+.saveBtn {
 	height:30px;
  	float:right;
     width: 78px;

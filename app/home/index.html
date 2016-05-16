@@ -2,6 +2,7 @@
 <link href="/app/public/css/bootstrap.min.css" rel="stylesheet" />
 <script src="/app/public/js/jquery.min.js"></script>
 <script src="/app/public/js/bootstrap.min.js"></script>
+<script src="/app/public/js/main.js"></script>
 <script src="/app/public/js/ckeditor/ckeditor.js"></script>
 <div  class="col-sm-6 top_down"><h2 id="page_title">What's going on?</h2></div>
 <div class="post_area  col-sm-7 ">
@@ -11,11 +12,14 @@
   </ul>
    <div class="tab-content">
     <div id="home" class="tab-pane fade in active">
-    <p></p><form method="post">
-      <textarea name="editor1" class="editor" rows="5" cols="80" ></textarea>
+    <p></p><form method="post" name="postForm" class="postForm" >
+     <div class="form-group">
+       <textarea name="editor1" id="editor1" required class="editor form-control" rows="5" cols="80" ng-model="vm.status.postData"></textarea>
+      <!--  <input type="text" id="statusData" name="statusData" ng-model="vm.status.statusData"> -->
+    </div>
    	  	  <script>
           	 CKEDITOR.replace('editor1');
-          	 CKEDITOR.add
+          	var editor = CKEDITOR.instances.editor1;
     	 </script>
     	 <div class="post_option">
 			 <label for="gruop_redirect">Post into Group </label>
@@ -62,14 +66,15 @@
 			 <option value="photo">Add Photo</option>
 			 <option value="video">Share Video</option></select>
 			 
-			 <input class="form-submit" type="submit" id="post_submit" name="op" value="Post">
+			<!--  <input class="saveBtn" type="submit" id="post_submit" name="op" value="Post"> -->
+			 <button class="saveBtn" ng-click="vm.postData()">Save</button>
 		</div></form>
     </div>
     <div id="appreciate" class="tab-pane fade"> <p></p>
       <textarea name="editor2" class="editor" rows="2" cols="80" ></textarea>
    	  	  <script>
           	 CKEDITOR.replace('editor2');
-          	 CKEDITOR.add
+          	 CKEDITOR.add         
     	 </script>
     </div>
   </div>

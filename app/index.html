@@ -18,9 +18,7 @@
 	            <li ng-class="{active: activeTab === 'our_work'}"><a ui-sref="our_work">Our Work</a></li>
 	            <li><a href="/login" target="_self">Logout</a></li>
 	        </ul>
-        <div class="flash-message" ng-if="flash">
-            <div class="{{'alert alert-' + flash.type}}" ng-bind="flash.message"></div>
-        </div>
+        
    	 </header>
 	</div>
 	<div class="col-sm-12 below_header"></div>
@@ -28,7 +26,9 @@
 
     <!-- main -->
     <main ui-view></main>
-
+<div class="flash-message" ng-if="flash">
+            <div class="{{'alert alert-' + flash.type}}" ng-bind="flash.message"></div>
+        </div>
     <!-- footer -->
     <footer></footer>
 

@@ -2,6 +2,7 @@
 var express = require('express');
 var router = express.Router();
 var userService = require('services/user.service');
+var postService = require('services/post.service');
 
 // routes
 router.post('/authenticate', authenticateUser);
@@ -9,6 +10,8 @@ router.post('/register', registerUser);
 router.get('/current', getCurrentUser);
 router.put('/:_id', updateUser);
 router.delete('/:_id', deleteUser);
+
+router.post('/postData',postData);
 
 module.exports = router;
 
@@ -37,6 +40,18 @@ function registerUser(req, res) {
             res.status(400).send(err);
         });
 }
+
+function postData(req, res) {
+    postService.create(req.body)
+        .then(function () {
+            res.sendStatus(200);
+        })
+        .catch(function (err) {
+            res.status(400).send(err);
+        });
+}
+
+
 
 function getCurrentUser(req, res) {
     userService.getById(req.user.sub)

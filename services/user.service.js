@@ -54,6 +54,7 @@ function getById(_id) {
 }
 
 function create(userParam) {
+	console.log(userParam); 
     var deferred = Q.defer();
 
     // validation
