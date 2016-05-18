@@ -42,6 +42,7 @@ function getById(_id) {
         if (err) deferred.reject(err);
 
         if (user) {
+            // console.log(user); return;
             // return user (without hashed password)
             deferred.resolve(_.omit(user, 'hash'));
         } else {
@@ -54,7 +55,6 @@ function getById(_id) {
 }
 
 function create(userParam) {
-	console.log(userParam); 
     var deferred = Q.defer();
 
     // validation
@@ -118,10 +118,12 @@ function update(_id, userParam) {
 
     function updateUser() {
         // fields to update
+    	console.log(userParam); return;
         var set = {
             firstName: userParam.firstName,
             lastName: userParam.lastName,
             username: userParam.username,
+            phone: userParam.phone
         };
 
         // update password if it was entered

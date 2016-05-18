@@ -1,5 +1,6 @@
 ﻿{
     "connectionString": "mongodb://localhost:27017/connect",
     "apiUrl": "http://localhost:3003/api",
-    "secret": "REPLACE THIS WITH YOUR OWN SECRET, IT CAN BE ANY STRING"
+    "secret": "REPLACE THIS WITH YOUR OWN SECRET, IT CAN BE ANY STRING",
+    "data" : "http://localhost:3003/data/images"
 }

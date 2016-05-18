@@ -12,7 +12,7 @@ router.put('/:_id', updateUser);
 router.delete('/:_id', deleteUser);
 
 router.post('/postData',postData);
-
+router.get('/getstatusData', getstatusData);
 module.exports = router;
 
 function authenticateUser(req, res) {
@@ -51,6 +51,19 @@ function postData(req, res) {
         });
 }
 
+function getstatusData(req, res) {
+	postService.getstatusData()
+        .then(function (status) {
+            if (status) {
+                res.send(status);
+            } else {
+                res.sendStatus(404);
+            }
+        })
+        .catch(function (err) {
+            res.status(400).send(err);
+        });
+}
 
 
 function getCurrentUser(req, res) {

@@ -10,6 +10,9 @@
   "moduleType": [],
   "private": true,
   "dependencies": {
-    "angular-ckeditor": "~1.0.3"
+    "angular-ckeditor": "~1.0.3",
+    "angular-sanitize": "~1.5.5",
+    "ng-file-upload": "~12.0.4",
+    "ngUpload": "~0.5.18"
   }
 }

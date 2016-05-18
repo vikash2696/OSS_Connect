@@ -14,12 +14,14 @@ db.bind('posttable');
 var service1 = {};
 
 service1.create = create;
+service1.getstatusData = getstatusData;
 
 module.exports = service1;
 
 function create(userParam) {
 	
-
+	userParam.created_at = new Date();
+//	console.log(userParam); return;
     var deferred = Q.defer();
     createPost();
     function createPost() {
@@ -35,3 +37,17 @@ function create(userParam) {
     return deferred.promise;
 }
 
+function getstatusData() {
+    var deferred = Q.defer();
+    var collection = db.collection('posttable');
+    collection.find().sort({ _id : -1 }).toArray(function(err, status) {
+        if (err) deferred.reject(err);
+        if (status) {
+            deferred.resolve(_.omit(status, 'hash'));
+        } else {
+            deferred.resolve();
+        }
+    });
+
+    return deferred.promise;
+}

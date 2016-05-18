@@ -2,13 +2,26 @@
 var router = express.Router();
 var request = require('request');
 var config = require('config.json');
-
+var multer  = require('multer');
+var upload = multer({ dest: 'uploads/' });
+var path = require('path'),
+    fs = require('fs');
 router.get('/', function (req, res) {
     res.render('register');
 });
 
-router.post('/', function (req, res) {
-
+router.post('/',upload.single('image'), function (req, res) {
+// console.log(req.body); return;
+req.body.image = req.file.originalname;
+// req.body.imagePath = req.file.path;
+// console.log(req.body); return;
+var tempPath = req.file.path;
+var targetPath = path.resolve('./app/public/uploads/'+req.file.originalname);
+// console.log(targetPath); return;
+fs.rename(tempPath, targetPath, function(err) {
+    if (err) throw err;
+    console.log("Upload completed!");
+});
     // register using api to maintain clean separation between layers
     request.post({
         url: config.apiUrl + '/users/register',
@@ -25,7 +38,9 @@ router.post('/', function (req, res) {
                 firstName: req.body.firstName,
                 lastName: req.body.lastName,
                 username: req.body.username,
-                phone : req.body.phone
+                phone : req.body.phone,
+                image : req.file.originalname
+                // imagePath : req.file.path
             });
         }
 

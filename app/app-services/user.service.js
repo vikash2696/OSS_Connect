@@ -16,6 +16,7 @@
         service.Update = Update;
         service.Delete = Delete;
         service.postData = postData;
+        service.getstatusData = getstatusData;
 
         return service;
 
@@ -49,6 +50,10 @@
         
         function postData(data) {
             return $http.post('/api/users/postData', data).then(handleSuccess, handleError);
+        }
+        
+        function getstatusData() {
+            return $http.get('/api/users/getstatusData').then(handleSuccess, handleError);
         }
         // private functions
 

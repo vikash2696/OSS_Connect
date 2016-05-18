@@ -1,7 +1,11 @@
 ﻿body {
     padding: 10px 0;
+    background: url(/profiles/commons/themes/commons/commons_origins/images/icons-s34f2cfa4c8.png) 0 -1175px no-repeat;
 }
-
+.image_area{
+  height:50px;
+  width: 50px;
+}
 .flash-message {
     margin-top: 20px;
 }
@@ -32,6 +36,14 @@ margin-top: 10px;
   	float:left;
   	margin-left: 75px; 
  }
+ #option_div{
+ 	padding:0;
+    margin:0;
+    display:inline-block;
+ }
+ #share_opt_id {
+	float:left;
+ }
  #home {
 	background-color: white;
     padding:15px;
@@ -39,12 +51,26 @@ margin-top: 10px;
     box-shadow: #858585 1px 1px 4px;
     margin: 10px 0 10px;
  }
+ .view_area{
+	background-color: white;
+    padding:15px;
+    border-radius: 3px;
+    box-shadow: #858585 1px 1px 4px;
+    margin: 15px 0 10px;
+	margin-left: 89px; 
+ 	float:left;
+ 	width:56%;
+ }
+ #view_post_div img {
+	max-width:100%;
+ }
  .post_option {
-	margin-top:10px;
+	/* float:left; */
+ 	margin-left:-10px;
  }
  .form-select {
 	height:30px;
- 	width:25%;
+ 	width:55%;
  }
 .saveBtn {
 	height:30px;
@@ -52,4 +78,37 @@ margin-top: 10px;
     width: 78px;
  	background-color:#AD8A00;
  	border-radius:5px;
+ }
+ .title_input{
+	margin-left:3%;
+ 	width:97%;
+ 	height:33px;
+ }
+ .title{
+ 	background-color:#F7F7F7;
+ 	min-height:45px;
+ }
+.post{
+ 	background-color:#F7F7F7;
+	margin-bottom:20px;
+ }
+ .title_area{
+ 	color: #0072ab;   
+  font-size: 1.3em !important;
+ 	font-weight: normal;
+ 	margin-top:10px;
+ }
+.post_view{
+ 	font-weight: normal;
+ 	margin-top:10px;
+ 	margin-left:50px;
+ }
+ .image_class {
+  margin-top: 10px;
+  
+ }
+ .post_time{
+  border: 1px solid red;
+  height: 5px;
+  width: 100px !important;
  }

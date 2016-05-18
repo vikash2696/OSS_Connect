@@ -4,6 +4,8 @@
 <script src="/app/public/js/bootstrap.min.js"></script>
 <script src="/app/public/js/main.js"></script>
 <script src="/app/public/js/ckeditor/ckeditor.js"></script>
+<div class="container">
+<!-- <script src="/bower_components/angular-sanitize/angular-sanitize.js"></script> -->
 <div  class="col-sm-6 top_down"><h2 id="page_title">What's going on?</h2></div>
 <div class="post_area  col-sm-7 ">
   <ul class="nav nav-tabs">
@@ -11,7 +13,7 @@
     <li><a data-toggle="tab" href="#appreciate">Appreciate</a></li>
   </ul>
    <div class="tab-content">
-    <div id="home" class="tab-pane fade in active">
+    <div id="home" class="tab-pane fade in active col-sm-12">
     <p></p><form method="post" name="postForm" class="postForm" >
      <div class="form-group">
        <textarea name="editor1" id="editor1" required class="editor form-control" rows="5" cols="80" ng-model="vm.status.postData"></textarea>
@@ -21,56 +23,66 @@
           	 CKEDITOR.replace('editor1');
           	var editor = CKEDITOR.instances.editor1;
     	 </script>
-    	 <div class="post_option">
-			 <label for="gruop_redirect">Post into Group </label>
-			 <select id="gruop_redirect" name="shout_box_group_redirect" class="form-select">
-			 <option value="-1" selected="selected">Individual</option>
-			 <option value="528"> Word of the Day</option>
-			 <option value="32">Applying Gita at Workplace</option>
-			 <option value="83">Business Development</option>
-			 <option value="1439">CONCLAVE BUZZ!</option>
-			 <option value="37">Celebrations@OSSCube</option>
-			 <option value="1413">Classified</option>
-			 <option value="23">Corporate Communication</option>
-			 <option value="42">Corporate Deals</option>
-			 <option value="2877">DilSe</option>
-			 <option value="3">Drupal COE</option>
-			 <option value="2895">Drupal test</option>
-			 <option value="39">Drupal-Centre of Excellence</option>
-			 <option value="802">Git FAQ and Problems</option>
-			 <option value="826">GrandMa's Dairy</option>
-			 <option value="5">HCM</option>
-			 <option value="19">HCM Policy updates </option>
-			 <option value="30">Humour</option>
-			 <option value="615">Learning and Development</option>
-			 <option value="110">Leave Management</option>
-			 <option value="16">OSSCube PMS portal</option>
-			 <option value="1244">Our Work</option>
-			 <option value="1">PHP COE</option>
-			 <option value="8">QC COE</option>
-			 <option value="316">Quality Pebbles</option>
-			 <option value="287">Reward &amp; Recognition</option>
-			 <option value="2652">Stepathlon Group</option>
-			 <option value="4">SugarCRM COE</option>
-			 <option value="127">Talent Acquisition</option>
-			 <option value="27">Technology Learning &amp; Training</option>
-			 <option value="6">Toast Master</option>
-			 <option value="821">US Updates and Happenings</option>
-			 <option value="14">Wellness Speaks</option>
-			 <option value="1837">Zaika..</option>
-			 <option value="1234">Zend Framework</option></select>
-			 
-			 <label for="edit-shout-box-photo-video-enable">Share </label>
-			 <select id="edit-shout-box-photo-video-enable" name="shout_box_photo_video_enable" class="form-select">
-			 <option value="none">-none-</option>
-			 <option value="photo">Add Photo</option>
-			 <option value="video">Share Video</option></select>
-			 
+    	 <div class="col-sm-12" id="option_div">
+    		 <div class="post_option col-sm-6">
+				 <label>Post into Group </label>
+				 <select class="form-select" ng-model="vm.status.groupName">
+				<!--  <option value="">---Please select---</option>  -->
+				 <option value="">Individual</option>
+				 <option value="528"> Word of the Day</option>
+				 <option value="32">Applying Gita at Workplace</option>
+				 <option value="83">Business Development</option>
+				 <option value="1439">CONCLAVE BUZZ!</option>
+				 <option value="37">Celebrations@OSSCube</option>
+				 <option value="1413">Classified</option>
+				 <option value="23">Corporate Communication</option>
+				 <option value="42">Corporate Deals</option>
+				 <option value="2877">DilSe</option>
+				 <option value="3">Drupal COE</option>
+				 <option value="2895">Drupal test</option>
+				 <option value="39">Drupal-Centre of Excellence</option>
+				 <option value="802">Git FAQ and Problems</option>
+				 <option value="826">GrandMa's Dairy</option>
+				 <option value="5">HCM</option>
+				 <option value="19">HCM Policy updates </option>
+				 <option value="30">Humour</option>
+				 <option value="615">Learning and Development</option>
+				 <option value="110">Leave Management</option>
+				 <option value="16">OSSCube PMS portal</option>
+				 <option value="1244">Our Work</option>
+				 <option value="1">PHP COE</option>
+				 <option value="8">QC COE</option>
+				 <option value="316">Quality Pebbles</option>
+				 <option value="287">Reward &amp; Recognition</option>
+				 <option value="2652">Stepathlon Group</option>
+				 <option value="4">SugarCRM COE</option>
+				 <option value="127">Talent Acquisition</option>
+				 <option value="27">Technology Learning &amp; Training</option>
+				 <option value="6">Toast Master</option>
+				 <option value="821">US Updates and Happenings</option>
+				 <option value="14">Wellness Speaks</option>
+				 <option value="1837">Zaika..</option>
+				 <option value="1234">Zend Framework</option></select>
+			 </div>
+			 <div class="form-group col-sm-4" id="share_opt_id" style="display: block;">
+				 <label>Share</label>
+				 <select class="form-select" ng-model="vm.status.shareOpt">
+				 <option value="">-none-</option>
+				 <option value="photo">Add Photo</option>
+				 <option value="video">Share Video</option></select>
+			 </div>
+		
+			  
 			<!--  <input class="saveBtn" type="submit" id="post_submit" name="op" value="Post"> -->
 			 <button class="saveBtn" ng-click="vm.postData()">Save</button>
-		</div></form>
+		</div>
+		<div class="post_option">
+			  <label class="col-sm-12">Title * </label>
+			 <input class="title_input" placeholder="Post title here."name="statusData" ng-model="vm.status.title" type="text" maxlength="128" class="form-text">
+		</div>
+		</form>
     </div>
-    <div id="appreciate" class="tab-pane fade"> <p></p>
+    <div id="appreciate" class="tab-pane fade "> <p></p>
       <textarea name="editor2" class="editor" rows="2" cols="80" ></textarea>
    	  	  <script>
           	 CKEDITOR.replace('editor2');
@@ -80,5 +92,24 @@
   </div>
 </div>
 
+<div class="view_area">
+ <div class="tab-content">
+    <div id="view_post_div" class="tab-pane fade in active">
+    	<h1> {{vm.user.firstName}}</h1>
+	    <div ng-repeat="statusData in vm.status">
+	    	  <div class="title col-sm-12">
+		    	  <p><img class="image_class" src="/app/public/uploads/{{vm.user.image}}" alt="Smiley face" height="50" width="50"></img>
+		    	  <span class="title_area" ng-bind-html="statusData.title | renderHTMLCorrectly">
+		    	  </span></p>
 
-<h1> {{vm.user.firstssName}}</h1>
+	    	  </div>
+	     	  <div class="post col-sm-12">
+	     	  	<p class="post_view" ng-bind-html="statusData.statusData | renderHTMLCorrectly"></p>
+	     	  </div>
+	    </div>
+    
+    </div>
+    </div>
+</div>
+</div>
+

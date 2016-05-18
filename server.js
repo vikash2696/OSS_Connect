@@ -14,6 +14,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 app.use(favicon(__dirname + '/app/public/images/favicon.ico'));
 app.use(session({ secret: config.secret, resave: false, saveUninitialized: true }));
+app.use(express.static(__dirname + '/uploads'));
 
 // use JWT auth to secure the api
 app.use('/api', expressJwt({ secret: config.secret }).unless({ path: ['/api/users/authenticate', '/api/users/register'] }));
@@ -28,6 +29,9 @@ app.use('/api/users', require('./controllers/api/users.controller'));
 app.get('/', function (req, res) {
     return res.redirect('/app');
 });
+
+
+
 // start server
 var server = app.listen(3003, function () {
     console.log('Server listening at http://' + server.address().address + ':' + server.address().port);
