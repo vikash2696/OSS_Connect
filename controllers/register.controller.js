@@ -13,11 +13,9 @@ router.get('/', function (req, res) {
 router.post('/',upload.single('image'), function (req, res) {
 // console.log(req.body); return;
 req.body.image = req.file.originalname;
-// req.body.imagePath = req.file.path;
-// console.log(req.body); return;
+// console.log(req.file); return;
 var tempPath = req.file.path;
 var targetPath = path.resolve('./app/public/uploads/'+req.file.originalname);
-// console.log(targetPath); return;
 fs.rename(tempPath, targetPath, function(err) {
     if (err) throw err;
     console.log("Upload completed!");
@@ -40,7 +38,6 @@ fs.rename(tempPath, targetPath, function(err) {
                 username: req.body.username,
                 phone : req.body.phone,
                 image : req.file.originalname
-                // imagePath : req.file.path
             });
         }
 

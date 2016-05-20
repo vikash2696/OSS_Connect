@@ -4,6 +4,7 @@
 <script src="/app/public/js/bootstrap.min.js"></script>
 <script src="/app/public/js/main.js"></script>
 <script src="/app/public/js/ckeditor/ckeditor.js"></script>
+
 <div class="container">
 <!-- <script src="/bower_components/angular-sanitize/angular-sanitize.js"></script> -->
 <div  class="col-sm-6 top_down"><h2 id="page_title">What's going on?</h2></div>
@@ -27,7 +28,6 @@
     		 <div class="post_option col-sm-6">
 				 <label>Post into Group </label>
 				 <select class="form-select" ng-model="vm.status.groupName">
-				<!--  <option value="">---Please select---</option>  -->
 				 <option value="">Individual</option>
 				 <option value="528"> Word of the Day</option>
 				 <option value="32">Applying Gita at Workplace</option>
@@ -66,20 +66,22 @@
 			 </div>
 			 <div class="form-group col-sm-4" id="share_opt_id" style="display: block;">
 				 <label>Share</label>
-				 <select class="form-select" ng-model="vm.status.shareOpt">
+				 <select class="form-select photo_share" ng-model="vm.status.shareOpt">
 				 <option value="">-none-</option>
 				 <option value="photo">Add Photo</option>
 				 <option value="video">Share Video</option></select>
 			 </div>
-		
-			  
-			<!--  <input class="saveBtn" type="submit" id="post_submit" name="op" value="Post"> -->
 			 <button class="saveBtn" ng-click="vm.postData()">Save</button>
 		</div>
-		<div class="post_option">
-			  <label class="col-sm-12">Title * </label>
+		 <div class="post_option">
+			  <label class="col-sm-12 title_label">Title * </label>
 			 <input class="title_input" placeholder="Post title here."name="statusData" ng-model="vm.status.title" type="text" maxlength="128" class="form-text">
-		</div>
+		</div> 
+		<!-- <div class="col-sm-7 photo_input" style="display: none;">
+		 <label></label>
+			 <input class="postPhoto" name="postPhoto" file-model = "myFile" type="file"></input>
+			 <input type="submit" class="post_photo" value="Upload & Post" ng-click="uploadFile()"></input>
+		</div> -->
 		</form>
     </div>
     <div id="appreciate" class="tab-pane fade "> <p></p>
@@ -95,12 +97,17 @@
 <div class="view_area">
  <div class="tab-content">
     <div id="view_post_div" class="tab-pane fade in active">
-    	<h1> {{vm.user.firstName}}</h1>
+    	<!-- <h1> {{vm.user.firstName}}</h1> -->
 	    <div ng-repeat="statusData in vm.status">
 	    	  <div class="title col-sm-12">
-		    	  <p><img class="image_class" src="/app/public/uploads/{{vm.user.image}}" alt="Smiley face" height="50" width="50"></img>
-		    	  <span class="title_area" ng-bind-html="statusData.title | renderHTMLCorrectly">
-		    	  </span></p>
+	    	  	<div class="image_class">
+		    	  <img  src="/app/public/uploads/{{vm.user.image}}" alt="Smiley face" height="50" width="50"></img></div>
+		    	  <div class="title_area">
+		    	  <span  ng-bind-html="statusData.title | renderHTMLCorrectly"></span>
+		    	  </div>
+		    	  <div class="post_time">
+		    	  	Post created by <span class="green_color">{{statusData.created_by}}</span> <span ng-bind-html="statusData.created_at | renderHTMLCorrectly"></span>
+		    	  </div>
 
 	    	  </div>
 	     	  <div class="post col-sm-12">

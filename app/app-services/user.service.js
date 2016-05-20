@@ -17,6 +17,7 @@
         service.Delete = Delete;
         service.postData = postData;
         service.getstatusData = getstatusData;
+       /* service.postPhoto = postPhoto;*/
 
         return service;
 
@@ -55,6 +56,18 @@
         function getstatusData() {
             return $http.get('/api/users/getstatusData').then(handleSuccess, handleError);
         }
+
+        /*function postPhoto(data) {
+            // console.log(data); return;
+            var fd = new FormData();
+               fd.append('file', data);
+            var uploadUrl = '/api/users/postPhoto';
+            // console.log(uploadUrl); return;
+              return $http.post(uploadUrl, fd, {
+                  transformRequest: angular.identity,
+                  headers: {'Content-Type': undefined}
+               }).then(handleSuccess, handleError);
+        }*/
         // private functions
 
         function handleSuccess(res) {

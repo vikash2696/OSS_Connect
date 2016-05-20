@@ -1,6 +1,13 @@
 ﻿var config = require('config.json');
 var express = require('express');
 var router = express.Router();
+/*
+var multer  = require('multer');
+var upload = multer({ dest: 'uploads/' });
+var path = require('path'),
+    fs = require('fs');*/
+
+
 var userService = require('services/user.service');
 var postService = require('services/post.service');
 
@@ -13,6 +20,8 @@ router.delete('/:_id', deleteUser);
 
 router.post('/postData',postData);
 router.get('/getstatusData', getstatusData);
+// router.post('/postPhoto',postPhoto);
+
 module.exports = router;
 
 function authenticateUser(req, res) {
@@ -111,3 +120,20 @@ function deleteUser(req, res) {
             res.status(400).send(err);
         });
 }
+
+/*function postPhoto(req,res) {
+    console.log(req);
+    console.log("in user controller");return;
+}*/
+/*
+router.post('/postPhoto',upload.single('postPhoto'), function (req, res) {
+console.log("lksdlsjdlsjdjsdj"); //return;
+// req.body.image = req.file.originalname;
+// console.log(req.body); return;
+var tempPath = '';
+var targetPath = path.resolve('./app/public/uploads/'+req.body.file);
+fs.rename(tempPath, targetPath, function(err) {
+    if (err) throw err;
+    console.log("Upload completed!");
+});
+});*/

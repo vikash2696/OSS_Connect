@@ -72,10 +72,10 @@ margin-top: 10px;
 	height:30px;
  	width:55%;
  }
-.saveBtn {
+.saveBtn,.post_photo {
 	height:30px;
  	float:right;
-    width: 78px;
+    min-width: 80px;
  	background-color:#AD8A00;
  	border-radius:5px;
  }
@@ -105,10 +105,27 @@ margin-top: 10px;
  }
  .image_class {
   margin-top: 10px;
-  
+  width: 50px;
+  float: left;
+  margin-right: 10px;
+  margin-left: -10px;
+
  }
  .post_time{
-  border: 1px solid red;
-  height: 5px;
-  width: 100px !important;
+  height: 20px;
+  margin-left: 48px;
+  font-size: 12px;
+ }
+ .green_color{
+  color: #0072ab; 
+ }
+ .post_photo{
+  float: right;
+  margin-top: -26px;
+  width: 80px;
+ }
+ .photo_input{
+  width:50%;
+  float: left;
+  margin-left: -10px;
  }
